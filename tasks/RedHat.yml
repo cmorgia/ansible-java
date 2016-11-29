@@ -78,6 +78,8 @@
 
 - name: RedHat | Set default Oracle Java version
   alternatives:
+    link: "/usr/bin/java"
     name: java
     path: "/usr/java/jdk{{ jdk_rpm_package_version.stdout }}/jre/bin/java"
   when: java_set_as_default and (java_jdk_type == 'oracle')
+  become: true
